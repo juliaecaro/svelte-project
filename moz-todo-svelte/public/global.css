@@ -1,0 +1,1008 @@
+/* Julia Caro */
+/* Last edited on: November 20, 2023 */
+
+/* CSS RESETS */
+
+/* EVERYTHING */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* EVERYTHING ON FOCUS */
+*:focus {
+	outline: none;
+}
+
+/* HTML AND BODY */
+html, body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* HTML */
+html {
+	font: 62.5% / 1.15 sans-serif;
+}
+
+/* BODY */
+body {
+	background-color: #cfcfcf;
+	color: #000000;
+}
+
+/* HEADER 1 AND HEADER 2 */
+h1, h2 {
+	margin-bottom: 0;
+	font-family: 'Lilita One', sans-serif;
+	letter-spacing: 0px;
+}
+
+/* UNORDERED LISTS */
+ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 15px;
+}
+
+/* BUTTONS */
+button {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	text-align: center;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+	appearance: none;
+}
+
+/* BUTTON, OPTGROUP, SELECT, TEXTAREA INPUTS, AND INPUTS */
+button,
+optgroup,
+select,
+textarea, 
+input {
+	font-family: 'Edu TAS Beginner', cursive;
+	font-size: 23px;
+	margin: 0;
+}
+
+/* BUTTON, OPTGROUP, SELECT, AND TEXTAREA INPUTS */
+button,
+optgroup,
+select,
+textarea {
+	line-height: 1;
+}
+
+/* BUTTONS AND INPUTS */
+button,
+input {
+	overflow: visible;
+}
+
+/* INPUTS */
+input {
+	line-height: 32px;
+}
+
+/* INPUT PLACEHOLDERS */
+input[type="text"]::placeholder {
+	overflow: visible;
+}
+
+/* CSS */
+
+/* THE TOP INPUT BOX */
+input[type="text"] {
+	border-radius: 25px;
+	padding: 0 2rem;
+	background-color: #fff;
+	border: 4px solid #000;
+	height: 62px;
+	line-height: 3;
+}
+
+/* THE EDIT INPUT BOX */
+.form-group > input[type="text"] {
+	display: inline-block;
+	margin-top: 0.4rem;
+	margin-bottom: 12px;
+}
+
+/* ALL RELEVANT ELEMENTS ON FOCUS */
+.input[type="text"]:focus, 
+.form-group > input[type="text"]:focus, 
+.btn.toggle-btn[aria-pressed="true"]:focus, 
+.btn.toggle-btn[aria-pressed="false"]:focus, 
+.btn__edit:focus, 
+.btn__danger:focus, 
+.btn__primary:focus, 
+#list-heading:focus, 
+.btn__lg:focus, 
+.c-cb > input[type="checkbox"]:focus + label::before, 
+.c-cb > input[type="checkbox"]:focus + label::after {
+	border: 4px solid #008000;
+}
+
+/* THE EDIT FORM'S 'NEW NAME FOR' LABEL */
+.form-group > label {
+	display: block;
+	text-align: center;
+	font-family: 'Edu TAS Beginner', cursive;
+	font-size: 23px;
+	margin-bottom: 2px;
+}
+
+/* BUTTONS IN GENERAL */
+.btn {
+	padding: 0.8rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	display: inline-block;
+	border-radius: 23px;
+	font-family: 'Lilita One', sans-serif;
+	font-size: 24px;
+	box-shadow: 0 1px 6px #7c7c7c;
+}
+
+/* THE ACTIVE TOGGLE BUTTON */
+.btn.toggle-btn[aria-pressed="true"] {
+	background-color: #000;
+	border: 4px outset #000;
+	color: #fff;
+	box-shadow: none;
+}
+
+/* THE ACTIVE TOGGLE BUTTON ON HOVER */
+.btn.toggle-btn[aria-pressed="true"]:hover {
+	box-shadow: 0 1px 6px #7c7c7c;
+	cursor: default;
+}
+
+/* THE INACTIVE TOGGLE BUTTONS */
+.btn.toggle-btn[aria-pressed="false"] {
+	background-color: #cccccc;
+	border: 4px outset #cccccc;
+	transition: 0.4s;
+}
+
+/* THE INACTIVE TOGGLE BUTTONS ON HOVER */
+.btn.toggle-btn[aria-pressed="false"]:hover {
+	box-shadow: none;
+	background-color: #7c7c7c;
+	border: 4px outset #7c7c7c;
+}
+
+/* THE EDIT BUTTON */
+.btn__edit {
+	color: #fff;
+	background-color: #017bea;
+	border: 4px outset #017bea;
+	transition: 0.4s;
+	border-radius: 25px;
+	margin-right: 3px;
+}
+
+/* THE ICONS ON THE EDIT AND DELETE BUTTONS */
+.btn__edit i, .btn__danger i {
+	scale: 140%;
+	color: #fff;
+	position: relative;
+	transition: 0.4s;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* THE EDIT BUTTON ON HOVER */
+.btn__edit:hover {
+	background-color: #0156a4;
+	border: 4px outset #0156a4;
+	box-shadow: none;
+}
+
+/* THE DELETE BUTTON */
+.btn__danger {
+	color: #fff;
+	background-color: #f50000;
+	border: 4px outset #f50000;
+	border-radius: 25px;
+	transition: 0.4s;
+}
+
+/* THE DELETE BUTTON ON HOVER */
+.btn__danger:hover {
+	background-color: #ac0000;
+	border: 4px outset #ac0000;
+	box-shadow: none;
+}
+
+/* THE REMOVE CHECKED BUTTON WHEN DISABLED */
+.btn__danger:disabled {
+	color: #d3d3d3;
+	background-color: #565656;
+	border-color: #565656;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+/* THE FILTER BUTTONS */
+.btn__filter {
+	height: 20px;
+}
+
+/* THE FILTER BUTTON GROUP */
+.filters {
+	margin: 15px 0 0 0;
+}
+
+/* AN EMPTY FILTER */
+.empty {
+	padding: 20px 0;
+	border-top: 3px dashed #939393;
+	border-bottom: 3px dashed #939393;
+	text-align: center;
+	font-family: 'Edu TAS Beginner', cursive;
+	font-size: 23px;
+}
+
+/* THE PRIMARY BUTTONS */
+.btn__primary {
+	color: #000;
+	background-color: #cccccc;
+	border: 4px outset #cccccc;
+	transition: 0.4s;
+}
+
+/* THE PRIMARY BUTTONS ON HOVER */
+.btn__primary:hover {
+	background-color: #7c7c7c;
+	border: 4px outset #7c7c7c;
+	box-shadow: none;
+}
+
+/* THE PRIMARY BUTTONS WHEN DISABLED (NOT ON HOVER) */
+.btn__primary:disabled:not(btn__primary.hover)  {
+	color: #d3d3d3;
+	background-color: #565656;
+	border-color: #565656;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+/* BUTTON GROUPS */
+.btn-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 25px;
+}
+
+/* THE BUTTON GROUPS' CHILDREN */
+.btn-group > * {
+	flex: 1 1 0;
+	width: 0;
+	height: 53px;
+}
+
+/* THE BUTTON GROUPS' SECOND CHILD */
+.btn-group > * + * {
+	margin-left: 0.8rem;
+}
+
+/* THE OPTIONS BUTTON GROUP (EDIT & DELETE BUTTONS) */
+.btn-options {
+	display: inline-block;
+	float: right;
+}
+
+/* WRAPPER FOR THE LABELS */
+.label-wrapper {
+	width: 100%;
+	margin: 25px 0 0 0;
+	flex: 0 0 100%;
+	text-align: center;
+}
+
+/* ELEMENTS THAT SHOULD BE VISUALLY HIDDEN */
+.visually-hidden {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+
+/* STACK GROUPS' CHILDREN */
+[class*="stack"] > * {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* LARGE STACK'S SECOND CHILD */
+.stack-large > * + * {
+	margin-top: 10px
+}
+
+/* EXCEPTION STACK */
+.stack-exception {
+	margin-top: 1.2rem;
+}
+
+/* H1 & H2 */
+h1, h2 {
+	width: fit-content;
+	color: black;
+}
+
+/* H2'S LIST-HEADING */
+#list-heading {
+	border: 4px solid #fffefa;
+	margin-top: 14px;
+	margin-bottom: 14px;
+	font-size: 35px;
+}
+
+/* THE ENTIRE TO-DO APP */
+.todoapp {
+	background: #fff;
+	margin: 5rem auto 0rem auto;
+	padding: 0 43px 65px 43px;
+	box-shadow: 0 1px 6px #7c7c7c;
+	border-top: 85px solid #000000;
+	border-radius: 30px;
+	max-width: 550px;
+	text-wrap: wrap;
+}
+
+/* THE TO-DO APP'S CHILDREN */
+.todoapp > * {
+	margin: 14px auto 0 auto;
+}
+
+/* THE TOP INPUT FORM */
+.todoapp > form {
+	border-bottom: 3px dashed #939393;
+}
+
+/* THE TO-DO APP'S H1 */
+.todoapp > h1 {
+	flex: 0 0 100%;
+	text-align: center;
+	margin: 0;
+	margin-bottom: 1rem;
+}
+
+/* TOP INPUT SECTION'S DIV */
+.new-input {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 100%;
+	width: 100%;
+	margin: 15px 0;
+}
+
+/* TOP INPUT'S LABEL */
+.label__lg {
+	line-height: 1.01567;
+	text-align: center;
+	font-size: 39px;
+	text-transform: uppercase;
+	padding-bottom: 8px;
+	border-bottom: 3px dashed #939393;
+	display: block;
+}
+
+/* TOP INPUT */
+.input__lg {
+	flex: 2;
+	margin-right: 7px;
+}
+
+/* TOP INPUT'S BUTTON, 
+OPTION BUTTON GROUP, 
+THE CHECKBOXES, AND 
+THE UNCHECKED CHECKBOXES */
+.btn__lg, .btn-options > *, .c-cb > input[type="checkbox"], .c-cb > label::before {
+	height: 62px;
+	width: 62px;
+	font-size: 1.9rem;
+}
+
+/* THE ADD BUTTON (TOP INPUT) */
+.btn__lg {
+	content: "➕";
+	font-size: 20px;
+	line-height: 1;
+	transition: 0.4s;
+	color: #fff;
+	background-color: #000;
+	border: 4px outset #000;
+}
+
+/* THE ADD BUTTON ON HOVER */
+.btn__lg:hover {
+	background-color: #7c7c7c;
+	border: 4px outset #7c7c7c;
+}
+
+/* THE ADD BUTTON'S ICON */
+.btn__lg i {
+	scale: 145%;
+	position: relative;
+	transition: 0.4s;
+	color: #fff;
+	font-size: 25px;
+}
+
+/* THE ADD BUTTON'S ICON ON DISABLED */
+.btn__lg:disabled i {
+	color: #d3d3d3;
+}
+
+/* TO-DO ITEM STYLES */
+.todo {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 0px;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	border-bottom: 3px dashed #939393;
+}
+
+/* THE FIRST TO-DO ITEM */
+.todo:first-of-type {
+	border-top: 3px dashed #939393;
+}
+
+/* EACH TO-DO ITEM'S CHILDREN */
+.todo > * {
+	flex: 0 0 100%;
+}
+
+/* THE TO-DO ITEM'S LABEL */
+.todo > label {
+	text-align: center;
+}
+
+/* THE TO-DO ITEM TEXT */
+.todo-text {
+	width: 100%;
+}
+
+/* THE EDIT FORM'S SAVE BUTTON */
+.todo-edit {
+	background-color: #000;
+	border-color: #000;
+	color: #fff;
+}
+
+/* THE EDIT FORM'S CANCEL BUTTON */
+.todo-cancel {
+	border: 4px outset #cfcfcf;
+	background-color: #cfcfcf;
+	color: #000;
+}
+
+/* THE EDIT FORM'S BUTTONS ON HOVER */
+.todo-edit:hover, .todo-cancel:hover {
+	border: 4px outset #7c7c7c;
+	background-color: #7c7c7c
+}
+
+/* CHECKBOX STYLES */
+.c-cb {
+	font-family: 'Edu TAS Beginner', cursive;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 1.25;
+	display: inline-block;
+	position: relative;
+	min-height: 44px;
+	padding-left: 55px;
+	clear: left;
+	transition: 0.4s;
+}
+
+/* THE CHECKBOX ITSELF */
+.c-cb > label::before,
+.c-cb > input[type="checkbox"] {
+	top: 0px;
+	left: 0px;
+	border-radius: 25px;
+}
+
+/* THE CHECKBOX INPUT */
+.c-cb > input[type="checkbox"] {
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+	position: absolute;
+	z-index: 1;
+	margin: 0;
+	opacity: 0;
+}
+
+/* THE CHECKBOX'S LABEL */
+.c-cb > label {
+	font-size: 23px;
+	font-family: 'Edu TAS Beginner', cursive;
+	line-height: 1;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0px;
+	margin-bottom: 0;
+	padding: 0 0 0 18.91px;
+	height: 62px;
+	cursor: pointer;
+	touch-action: manipulation;
+	text-align: justify;
+	max-width: 270px;
+}
+
+/* THE UNCHECKED CHECKBOX */
+.c-cb > label::before {
+	content: "";
+	position: absolute;
+	border: 4px solid #cfcfcf;
+	background-color: #cfcfcf;
+	transition: 0.4s;
+}
+
+/* THE UNCHECKED CHECKBOX ON HOVER */
+.c-cb > input[type="checkbox"]:hover + label::before {
+	border: 4px solid #7c7c7c;
+	background-color: #7c7c7c;
+}
+
+/* THE CHECKED CHECKBOX */
+.c-cb > label::after {
+	box-sizing: content-box;
+	content: "✔";
+	position: absolute;
+	margin: auto;
+	padding-left: 6px;
+	padding-top: 3px;
+	left: 0;
+	top: 0;
+	height: 51px;
+	width: 48px;
+	color: white;
+	opacity: 0;
+	background-color: #000;
+	border: 4px outset #000;
+	border-radius: 25px;
+	font-size: 46px;
+	line-height: 1;
+	transition: 0.4s
+}
+
+/* THE CHECKBOX AND THE CHECKED CHECKBOX */
+.c-cb > input[type="checkbox"] + label::after {
+	box-shadow: 0 1px 6px #7c7c7c;
+}
+
+/* THE CHECKBOX AND THE CHECKED CHECKBOX'S LABEL ON HOVER */
+.c-cb > input[type="checkbox"]:hover + label::after {
+	background-color: #7c7c7c;
+	border: 4px outset #7c7c7c;
+	box-shadow: none;
+}
+
+/* THE CHECKBOX AND THE LABEL AFTER BEING CHECKED */
+.c-cb > input[type="checkbox"]:checked + label::after {
+	opacity: 1;
+}
+
+/* THE ALERT */
+.alert {
+	position: fixed;
+	cursor: default;
+	top: 54px;
+	left: 50%;
+	transform: translate(-50%, 0px);
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 3px dashed #939393;
+	border-bottom: 3px dashed #939393;
+	border-radius: 0px;
+	background-color: #fff;
+	padding: 0rem 2rem;
+	line-height: 1.1;
+	font-size: 23px;
+	font-family: 'Edu TAS Beginner', cursive;
+	z-index: 100;
+	opacity: 100%;
+	box-shadow: 0 1px 6px #7c7c7c;
+	min-height: auto;
+	min-width: auto;
+}
+
+/* THE ALERT'S PARAGRAPH */
+.alert p {
+	color: #000;
+}
+
+/* THE ALERT'S SVG */
+.alert svg {
+	height: 1.6rem;
+	width: 1.4rem;
+	fill: #000;
+	margin-right: 0.75rem;
+}
+
+/* PHONES & SCREENS WITH A WIDTH SMALLER THAN 700PX */
+@media screen and (max-width: 700px) {
+	/* EVERYTHING */
+	* {
+		transition: 0.4s;
+	}
+
+	/* EVERYTHING ON HOVER */
+	*:hover {
+		box-shadow: none;
+	}
+	
+	/* THE H2 LIST-HEADING */
+	#list-heading {
+		text-align: center;
+		font-size: 35px;
+		line-height: 0.95;
+		margin: 18px auto;
+		width: fit-content;
+	}
+
+	/* WRAPPER FOR THE LABELS */
+	.label-wrapper {
+		margin: 0;
+	}
+
+	/* THE ENTIRE TO-DO APP */
+	.todoapp {
+		border-top: none;
+		border-radius: 0px;
+		display: flex;
+		flex-flow: column;
+		max-width: none;
+		padding: 60px 40px;
+		margin: 0;
+		box-shadow: none;
+	}
+
+	/* THE TO-DO APP'S CHILDREN */
+	.todoapp > * {
+		margin: 0;
+	}
+
+	/* THE TO-DO APP'S FORM */
+	.todoapp > form {
+		border-bottom: 4px dashed #939393;
+	}
+
+	/* TOP INPUT SECTION'S DIV */
+	.new-input {
+		margin: 18px 0;
+	}
+
+	/* TOP INPUT'S LABEL */
+	.label__lg {
+		font-size: 40px;
+		line-height: 0.95;
+		border-bottom: 4px dashed #939393;
+		padding-bottom: 11px;
+	}
+
+	/* TOP INPUT */
+	.input__lg {
+		margin-right: 0;
+		margin-bottom: 8px;
+	}
+	
+	/* THE TOP INPUT FORM */
+	.todoapp > form {
+		padding-bottom: 0px;
+		margin: 0;
+	}
+
+	/* TOP INPUT'S BUTTON, 
+	OPTION BUTTON GROUP, 
+	THE CHECKBOXES, AND 
+	THE UNCHECKED CHECKBOXES */
+	.btn__lg, .btn-options > *, .c-cb > input[type="checkbox"], .c-cb > label::before {
+		height: 60px;
+	}
+
+	/* TOP INPUT'S BUTTON */
+	.btn__lg {
+		border: 4px solid #000;
+	}
+
+	/* THE ADD BUTTON'S ICON */
+	.btn.btn__lg i {
+		scale: 165%;
+		line-height: inherit;
+		vertical-align: 0;
+	}
+
+	/* THE ACTIVE TOGGLE BUTTON */
+	.btn.toggle-btn[aria-pressed="true"] {
+		border: 4px solid #000;
+	}
+
+	/* THE ACTIVE TOGGLE BUTTON ON HOVER */
+	.btn.toggle-btn[aria-pressed="true"]:hover {
+		box-shadow: none;
+		border: 4px solid #000;
+	}
+
+	/* THE INACTIVE TOGGLE BUTTONS */
+	.btn.toggle-btn[aria-pressed="false"] {
+		border: 4px solid #cccccc;
+	}
+
+	/* THE INACTIVE TOGGLE BUTTONS ON HOVER */
+	.btn.toggle-btn[aria-pressed="false"]:hover {
+		box-shadow: none;
+		border: 4px solid #7c7c7c;
+	}
+
+	/* ALL BUTTONS */
+	.btn {
+		font-size: 27px;
+		box-shadow: none;
+		height: 57px;
+		line-height: 0.87;
+	}
+	
+	/* THE BUTTONS AND ALL BUTTON GROUPS */
+	.btn, .btn-group {
+		display: block; 
+		width: 100%;
+	}
+
+	/* ALL BUTTON GROUPS */
+	.btn-group {
+		margin-top: 18px;
+	}
+
+	/* THE LAST BUTTON CHILD OF EACH BUTTON GROUP */
+	.btn-group .btn:last-child, {
+		margin-bottom: 0px;
+	}
+
+	/* THE SECOND (AND ONWARDS) CHILD OF EACH BUTTON GROUP */
+	.btn-group > * + * {
+		margin: 8px 0 0 0;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* BUTTON GROUPS IN SMALL STACKS */
+	.stack-small .btn-group {
+		margin-top: 8px;
+		margin-bottom: 0px;
+	}
+
+	/* CHECKBOX STYLES */
+	.c-cb {
+		line-height: 1.3;
+		padding-left: 61px;
+		padding-bottom: 2px;
+	}
+
+	/* THE CHECKBOX'S LABEL */
+	.c-cb > label {
+		font-size: 25px;
+		max-width: none;
+		text-align: left;
+		padding: 0 0 0 17px;
+		height: 67px;
+	}
+	
+	/* THE CHECKBOXES & THE UNCHECKED CHECKBOXES */
+	.c-cb > input[type="checkbox"], .c-cb > label::before {
+		height: 67px;
+		width: 67px;
+		font-size: 1.9rem;
+	}
+
+	/* THE CHECKED CHECKBOX */
+	.c-cb > label::after {
+		padding-left: 8px;
+		padding-top: 3px;
+		left: 0;
+		top: 0;
+		height: 56px;
+		width: 51px;
+		font-size: 52px;
+		border: 4px solid #000;
+	}
+
+	/* BEFORE THE CHECKBOX AND THE CHECKED CHECKBOX */
+	.c-cb > input[type="checkbox"] + label::before {
+		padding-bottom: 10px;
+	}
+	
+	/* AFTER THE CHECKBOX AND THE CHECKED CHECKBOX */
+	.c-cb > input[type="checkbox"] + label::after {
+		box-shadow: none;
+	}
+
+	/* THE CHECKBOX AND THE CHECKED CHECKBOX ON HOVER */
+	.c-cb > input[type="checkbox"]:hover + label::after {
+		border: 4px solid #7c7c7c;
+	}
+
+	/* AN EMPTY FILTER */
+	.empty {
+		font-size: 25px;
+		border-top: 4px dashed #939393;
+		border-bottom: 4px dashed #939393;
+	}
+	
+	/* THE OPTIONS BUTTON GROUP (EDIT & DELETE BUTTONS) */
+	.btn-options {
+		display: block; 
+		width: 100%;
+		border-left: none;
+		padding-left: 0px;
+		margin-top: 9px;
+	}
+
+	/* THE OPTIONS BUTTON GROUP'S CHILDREN */
+	.btn-options > * {
+		box-shadow: none;
+	}
+
+	/* THE OPTIONS BUTTON GROUP'S SECOND CHILD */
+	.btn-options > * + * {
+		margin-top: 8px;
+	}
+
+	/* THE EDIT BUTTON */
+	.btn__edit {
+		border: 4px solid #017bea;
+	}
+
+	/* THE EDIT BUTTON ON HOVER */
+	.btn__edit:hover {
+		border: 4px solid #0156a4;
+	}
+
+	/* ANY DELETE BUTTONS */
+	.btn__danger {
+		margin-bottom: 0px;
+		border: 4px solid #f50000;
+	}
+
+	/* ANY DELETE BUTTONS ON HOVER */
+	.btn__danger:hover {
+		border: 4px solid #ac0000;
+	}
+
+	/* THE ICONS ON THE EDIT AND DELETE BUTTONS */
+	.btn__edit i, .btn__danger i {
+		scale: 97%;
+		padding-top: 13px;
+	}
+
+	/* THE EDIT FORM'S 'NEW NAME FOR' LABEL */
+	.form-group > label {
+		margin-bottom: 0px;
+		font-size: 25px;
+	}
+
+	/* THE EDIT FORM'S SAVE BUTTON */
+	.todo-edit {
+		border: 4px solid #000;
+	}
+	
+	/* THE EDIT FORM'S CANCEL BUTTON */
+	.todo-cancel {
+		box-shadow: none;
+		border: 4px solid #cccccc;
+	}
+
+	/* PRIMARY BUTTONS */
+	.btn__primary {
+		box-shadow: none;
+		border: 4px solid #cccccc;
+	}
+
+	/* PRIMARY BUTTONS ON HOVER */
+	.btn__primary:hover {
+		border: 4px solid #7c7c7c;
+	}
+
+	/* THE PRIMARY BUTTONS WHEN DISABLED (NOT ON HOVER) */
+	.btn__primary:disabled:not(btn__primary.hover)  {
+		border: 4px solid #565656;
+	}
+
+	/* THE ADD BUTTON */
+	.btn__primary.btn__lg {
+		border: 4px solid #000;
+	}
+
+	/* THE EDIT BUTTON */
+	.btn__primary.todo-edit {
+		border: 4px solid #000;
+	}
+
+	/* THE ADD BUTTON ON FOCUS,
+	THE EDIT BUTTON ON FOCUS,
+	THE ACTIVE TOGGLE BUTTON ON FOCUS,
+	THE INACTIVE TOGGLE BUTTON ON FOCUS */
+	.btn__primary.btn__lg:focus, 
+	.btn__primary.todo-edit:focus, 
+	.btn.toggle-btn[aria-pressed="true"]:focus, 
+	.btn.toggle-btn[aria-pressed="false"]:focus {
+		border: 4px solid #008000;
+	}
+
+	/* UNORDERED LISTS */
+	ul {
+		margin: 0;
+	}
+
+	/* THE TO-DOS */
+	.todo {
+		padding-top: 18px;
+		padding-bottom: 18px;
+		border-bottom: 4px dashed #939393;
+	}
+
+	/* THE FIRST TO-DO */
+	.todo:first-of-type {
+		border-top: 4px dashed #939393;
+	}
+
+	/* BOTH INPUTS */
+	.input[type="text"] {
+		font-size: 25px;
+		width: 100%;
+	}
+
+	/* THE EDIT FORM'S INPUT */
+	.form-group > input[type="text"] {
+		margin: 8px 0 0 0;
+		font-size: 25px;
+	}
+
+	/* THE FILTERS BUTTON GROUP */
+	.filters {
+		margin: 18px auto 0 auto;
+	}
+
+	/* THE ALERT */
+	.alert {
+		opacity: 100%;
+		font-size: 25px;
+		box-shadow: none;
+		width: 100%;
+		border-top: 4px dashed #939393;
+		border-bottom: 4px dashed #939393;
+		padding: 0rem 2.5rem;
+	}
+
+	/* THE ALERT'S SVG */
+	.alert svg {
+		height: 2.1rem;
+		width: 1.9rem;
+	}
+}
